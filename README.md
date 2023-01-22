@@ -4,13 +4,13 @@ First projet of the Java projects arc in 42 cursus. Implementation of a simple J
 ## UML Conception
 
 ### Tower // has a Aggregation relationship with Aircraft
-- observers: Flyable*
+-observers: Flyable*
 +register(flayable: Flyable) : void
 +unregister(flayable: Flyable) : void
 #conditionsChanged(): void
 
 ### WeatherTower // inherite from Tower
-+ getWeather(coordinates: Coordinates): String
++getWeather(coordinates: Coordinates): String
 -changeWeather(): void
 
 ### Aircraft

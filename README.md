@@ -3,25 +3,25 @@ First projet of the Java projects arc in 42 cursus. Implementation of a simple J
 
 ## UML Conception
 
-### Tower // has a Aggregation relationship with Aircraft
--observers: Flyable*
-+register(flayable: Flyable) : void
-+unregister(flayable: Flyable) : void
+### io.github.sbensarg.simulator.Tower // has a Aggregation relationship with io.github.sbensarg.simulator.Aircraft
+-observers: io.github.sbensarg.simulator.Flyable*
++register(flayable: io.github.sbensarg.simulator.Flyable) : void
++unregister(flayable: io.github.sbensarg.simulator.Flyable) : void
 #conditionsChanged(): void
 
-### WeatherTower // inherite from Tower
-+getWeather(coordinates: Coordinates): String
+### io.github.sbensarg.simulator.WeatherTower // inherite from io.github.sbensarg.simulator.Tower
++getWeather(coordinates: io.github.sbensarg.simulator.Coordinates): String
 -changeWeather(): void
 
-### Aircraft
+### io.github.sbensarg.simulator.Aircraft
 #id: long
 #name: string
 #cordinates: Cordinates
 -idCounter: long
-#Aircraft(name: string, coordinates: Cordinates)
+#io.github.sbensarg.simulator.Aircraft(name: string, coordinates: Cordinates)
 -nextId(): long
 
-### Coordinates // has a Composition relationship with Aircraft
+### io.github.sbensarg.simulator.Coordinates // has a Composition relationship with io.github.sbensarg.simulator.Aircraft
 -longitude: int
 -latitude: int
 -height: int
@@ -30,35 +30,35 @@ First projet of the Java projects arc in 42 cursus. Implementation of a simple J
 +getLatitude()
 +getHeight()
 
-### Flyable << Interface >>
+### io.github.sbensarg.simulator.Flyable << Interface >>
 +updateConditions(): void
-+registerTower(WeatherTower: WeatherTower) : void
++registerTower(io.github.sbensarg.simulator.WeatherTower: io.github.sbensarg.simulator.WeatherTower) : void
 
-### Helicopter // inherite from Aircraft and impliment from Flyable
--weatherTower: WeatherTower
-~Helicopter(name: string, coordinates: Coordinates)
+### io.github.sbensarg.simulator.Helicopter // inherite from io.github.sbensarg.simulator.Aircraft and impliment from io.github.sbensarg.simulator.Flyable
+-weatherTower: io.github.sbensarg.simulator.WeatherTower
+~io.github.sbensarg.simulator.Helicopter(name: string, coordinates: io.github.sbensarg.simulator.Coordinates)
 +updateConditions(): void
-+registerTower(WeatherTower: WeatherTower) : void
++registerTower(io.github.sbensarg.simulator.WeatherTower: io.github.sbensarg.simulator.WeatherTower) : void
 
-### JetPlane // inherite from Aircraft and impliment from Flyable
--weatherTower: WeatherTower
-~JeTPlane(name: string, coordinates: Coordinates)
+### io.github.sbensarg.simulator.JetPlane // inherite from io.github.sbensarg.simulator.Aircraft and impliment from io.github.sbensarg.simulator.Flyable
+-weatherTower: io.github.sbensarg.simulator.WeatherTower
+~JeTPlane(name: string, coordinates: io.github.sbensarg.simulator.Coordinates)
 +updateConditions(): void
-+registerTower(WeatherTower: WeatherTower) : void
++registerTower(io.github.sbensarg.simulator.WeatherTower: io.github.sbensarg.simulator.WeatherTower) : void
 
-### Baloon
--weatherTower: WeatherTower
-~Ballon(name: string, coordinates: Coordinates)
+### io.github.sbensarg.simulator.Baloon
+-weatherTower: io.github.sbensarg.simulator.WeatherTower
+~Ballon(name: string, coordinates: io.github.sbensarg.simulator.Coordinates)
 +updateConditions(): void
-+registerTower(WeatherTower: WeatherTower) : void
++registerTower(io.github.sbensarg.simulator.WeatherTower: io.github.sbensarg.simulator.WeatherTower) : void
 
-### WeatherProvider //Self Association
--weatherProvider: WeatherProvider
+### io.github.sbensarg.simulator.WeatherProvider //Self Association
+-weatherProvider: io.github.sbensarg.simulator.WeatherProvider
 -weather:string[]
--WeatherProvider()
-+getProvider(): WeatherProvider
-+getCurrentWeather(cordinates: Coordinates) : string
+-io.github.sbensarg.simulator.WeatherProvider()
++getProvider(): io.github.sbensarg.simulator.WeatherProvider
++getCurrentWeather(cordinates: io.github.sbensarg.simulator.Coordinates) : string
 
-### AircraftFactory
-+newAircraft(type: string, name: string, longitude: int, latitude: int, height: int) : Flyable 
+### io.github.sbensarg.simulator.AircraftFactory
++newAircraft(type: string, name: string, longitude: int, latitude: int, height: int) : io.github.sbensarg.simulator.Flyable 
 

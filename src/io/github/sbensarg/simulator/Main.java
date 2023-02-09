@@ -1,4 +1,6 @@
-import exceptions.InvalidAircraftTypeException;
+package io.github.sbensarg.simulator;
+
+import io.github.sbensarg.exceptions.InvalidAircraftTypeException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,16 +14,21 @@ public class Main {
     private static int simulations;
     public static void main(String[] args)
     {
+        if (args.length != 1) {
+            System.out.println("Usage: provide the scenario.txt input file as argument");
+            System.exit(1);
+        }
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("scenario.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(args[0]));
             String line = reader.readLine();
             if (line != null) {
                 simulations = Integer.parseInt(line.split(" ")[0]);
             }
             while ((line = reader.readLine()) != null) {
-                Flyable flyable = AircraftFactory.newAircraft(line.split(" ")[0], line.split(" ")[1],
-                        Integer.parseInt(line.split(" ")[2]), Integer.parseInt(line.split(" ")[3]),
-                        Integer.parseInt(line.split(" ")[4]));
+                String[] parts = line.split(" ");
+                Flyable flyable = AircraftFactory.newAircraft(parts[0], parts[1],
+                        Integer.parseInt(parts[2]), Integer.parseInt(parts[3]),
+                        Integer.parseInt(parts[4]));
                 if (flyable != null) {
                     flyables.add(flyable);
                 }

@@ -1,6 +1,12 @@
 # avaj-launcher
 First projet of the Java projects arc in 42 cursus. Implementation of a simple Java program according to a given class diagram written in UML.
 
+## Usage
+- ``` docker pull williamyeh/java7 ```
+- ``` docker run -it -v  ${PWD}:/avaj-launcher williamyeh/java7 bash ```
+- ``` cd avaj-launcher ```
+- ``` make ```
+
 ## UML Conception
 
 ### io.github.sbensarg.simulator.Tower // has a Aggregation relationship with io.github.sbensarg.simulator.Aircraft

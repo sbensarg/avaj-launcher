@@ -2,7 +2,7 @@ package io.github.sbensarg.simulator;
 
 public class WeatherProvider {
     private final static WeatherProvider weatherProvider;
-    private static String[] weather = {"SUN", "RAIN", "FOG", "SNOW"};
+    private static final String[] weather = {"SUN", "RAIN", "FOG", "SNOW"};
 
     static {
         weatherProvider = new WeatherProvider();

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Main {
     private static WeatherTower weatherTower;
-    private static List<Flyable> flyables = new ArrayList<>();
+    private static final List<Flyable> flyables = new ArrayList<>();
     private static int simulations;
     public static void main(String[] args)
     {
@@ -34,7 +34,6 @@ public class Main {
                 }
             }
             reader.close();
-
             weatherTower = new WeatherTower();
             for (Flyable flyable : flyables) {
                 flyable.registerTower(weatherTower);
